@@ -238,6 +238,9 @@ async def fetch(
     return [TextContent(type="text", text=f"{prefix}Contents of {url}:\n{content}")]
 
 
+# Expose ASGI app for deployment platforms like Render
+app = mcp.app
+
 async def main():
     await mcp.run_async(
         "streamable-http",
